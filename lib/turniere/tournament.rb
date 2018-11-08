@@ -7,15 +7,15 @@ module Turniere
       @playoff_size = playoff_size
     end
 
-    def self.create(teams, group_size, randomize, playoff_size)
+    def self.create(teams, group_size, randomize, _playoff_size)
       teams.shuffle! if randomize
 
       if group_size < 2
-          generatePlayoffs(teams, tournament);
+        generatePlayoffs(teams, tournament)
       else
-          generateGroupStage(teams, tournament, groupSize, playoffSize);
+        generateGroupStage(teams, tournament, groupSize, playoffSize)
       end
-      return
+      nil
     end
   end
 end
